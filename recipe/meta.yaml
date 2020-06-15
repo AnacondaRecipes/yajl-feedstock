@@ -21,7 +21,7 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
     - cmake 3.*
     - python     # [win]
     - vc 9       # [win and py27]
