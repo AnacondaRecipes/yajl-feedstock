@@ -1,7 +1,7 @@
 {% set author = "lloyd" %}
 {% set name = "yajl" %}
-{% set version = "2.1.0" %}
-{% set sha256sum = "3fb73364a5a30efe615046d07e6db9d09fd2b41c763c5f7d3bfb121cd5c5ac5a" %}
+{% set version = "0.3.5" %}
+{% set sha256sum = "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed" %}
 
 package:
   name: {{ name }}
