@@ -20,16 +20,15 @@ requirements:
   build:
     - {{ compiler('c') }}
     - cmake 3.*
+    - ninja-base
     - python     # [win]
     - vc 14      # [win and py>=35]
-
   run:
     - vc 14      # [win and py>=35]
 
 test:
   requires:
     - pkg-config  # [unix]
-
   commands:
     - echo "{}" | json_reformat  # [unix]
     - echo "{}" | json_verify  # [unix]
