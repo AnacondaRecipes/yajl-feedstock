@@ -8,35 +8,28 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/{{ author }}/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/{{ author }}/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 
 build:
-  number: 0
+  number: 1
   features:
-    - vc9   # [win and py27]
-    - vc10  # [win and py34]
     - vc14  # [win and py>=35]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - cmake 3.*
+    - ninja-base
     - python     # [win]
-    - vc 9       # [win and py27]
-    - vc 10      # [win and py34]
     - vc 14      # [win and py>=35]
-
   run:
-    - vc 9       # [win and py27]
-    - vc 10      # [win and py34]
     - vc 14      # [win and py>=35]
 
 test:
   requires:
+    - conda-build  # [osx]
     - pkg-config  # [unix]
-
   commands:
     - echo "{}" | json_reformat  # [unix]
     - echo "{}" | json_verify  # [unix]
@@ -55,8 +48,9 @@ test:
     - conda inspect objects -p $PREFIX {{ name }}  # [osx]
 
 about:
-  home: https://lloyd.github.io/yajl/
+  home: https://github.com/lloyd/yajl
   license: ISC
+  license_family: OTHER
   license_file: COPYING
   summary: Yet Another JSON Library
   description: |
