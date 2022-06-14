@@ -28,6 +28,7 @@ requirements:
 
 test:
   requires:
+    - conda-build  # [osx]
     - pkg-config  # [unix]
   commands:
     - echo "{}" | json_reformat  # [unix]
